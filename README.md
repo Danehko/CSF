@@ -5,4 +5,6 @@
 ### Aulas
 
 - [x] 02/08/2019 - Propagação em espaço livre - prop_EL.m
+- [x] 06/08/2019 - Calculo de perdas - calc_exp_perdas.m
 
+ 
