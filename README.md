@@ -8,7 +8,7 @@
 - [x] 06/08/2019 - Calculo de perdas - calc_exp_perdas.m
 - [x] 09/08/2019 - Aula adiada
 - [x] 13/08/2019 - Modelo log-distância
-- [x] 16/08/2019 - Desvanecimento
+- [x] 16/08/2019 - Desvanecimento - ex_desvanecimento.m
 - [ ] 20/08/2019 -
 - [ ] 23/08/2019 -
 - [ ] 27/08/2019 -
