@@ -9,7 +9,7 @@
 - [x] 09/08/2019 - Aula adiada
 - [x] 13/08/2019 - Modelo log-distância
 - [x] 16/08/2019 - Desvanecimento - ex_desvanecimento.m
-- [ ] 20/08/2019 -
+- [x] 20/08/2019 - Desvanecimento
 - [ ] 23/08/2019 -
 - [ ] 27/08/2019 -
 - [ ] 30/08/2019 -
