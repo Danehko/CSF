@@ -10,8 +10,8 @@
 - [x] 13/08/2019 - Modelo log-distância
 - [x] 16/08/2019 - Desvanecimento - ex_desvanecimento.m
 - [x] 20/08/2019 - Desvanecimento - continuando
-- [x] 23/08/2019 - Desvanecimento - continuando
-- [ ] 27/08/2019 -
+- [x] 23/08/2019 - aula_fading.m
+- [x] 27/08/2019 - comparando Rayleigh e Rice - analisse_desem_ray_rician.m
 - [ ] 30/08/2019 -
 - [ ] 03/09/2019 -
 - [ ] 06/09/2019 -
