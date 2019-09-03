@@ -11,15 +11,15 @@ doppler = 300; %fd
 k = 100; % parametro Riciano
 M = 2; %ordem da modulação M = representa geração de bits
 
-imagem = imread('icone.png');
+imagem = imread('teste.png');
+figure(1)
+image(imagem);
 
-%pegar imagem
-%reshape
-%de2bi
-%reshape
-%double
+imagem_serial = reshape(imagem, 1 ,[]);
+imagem_bin = de2bi(imagem_serial);
+imagem_bin_serial = reshape(imagem_bin,1,[]);
+info = transpose(double(imagem_bin_serial));
 
-info = randi(M,num_sim,1)-1; %gerando informação a ser transmitida
 info_mod = pskmod(info,M); %utilizando uma função que faz a modulação PSK (modulação digital em fase)
 canal_ray = rayleighchan(ts, doppler);% gerando o objeto que representa o canal
 canal_ric = ricianchan(ts, doppler, k);
@@ -36,5 +36,23 @@ sinalEqRay = sinal_rec_ray_awgn./ganho_ray; % (equalizando)eliminando os efeitos
 sinalEqRic = sinal_rec_ric_awgn./ganho_ric;
 sinalDemRay = pskdemod(sinalEqRay,M);% demodulando o sinal equalizado
 sinalDemRic = pskdemod(sinalEqRic,M);
+inf_rxRay = transpose(sinalDemRay);
+inf_rxRic = transpose(sinalDemRic);
+inf_rxRay = uint8(inf_rxRay);
+inf_rxRic = uint8(inf_rxRic);
+inf_8_rxRay = reshape(inf_rxRay,[],8);
+inf_8_rxRic = reshape(inf_rxRic,[],8);
+inf_de_rxRay = bi2de(inf_8_rxRay);
+inf_de_rxRic = bi2de(inf_8_rxRic);
+inf_de_rxRay = transpose(inf_de_rxRay);
+inf_de_rxRic = transpose(inf_de_rxRic);
+imagem_Ray =reshape(inf_de_rxRay,size(imagem));
+imagem_Ric =reshape(inf_de_rxRic,size(imagem));
+figure(2)
+subplot(1,2,1);
+image(imagem_Ray)
+subplot(1,2,2);
+image(imagem_Ric)
+
 [num_ray, taxa_ray]  =symerr(info,sinalDemRay) % comparando a sequencia de informação gerada com a informação demodulada
 [num_ric, taxa_ric]  =symerr(info,sinalDemRic)
