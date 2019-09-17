@@ -7,7 +7,7 @@ ts = 1/rs; % tempo de simbolo
 num_sim = 1e6; % numero de simbolos a ser transmitidos
 t = [0:ts:num_sim/rs-(ts)];
 doppler = 300; %fd 
-k = 10000; % parametro Riciano
+k = 100                                                                                                            ; % parametro Riciano
 M = 2; %ordem da modulação M = representa geração de bits
 
 info = randi(M,num_sim,1)-1; %gerando informação a ser transmitida
