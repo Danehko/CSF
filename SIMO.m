@@ -26,6 +26,7 @@ canal_ray3.StoreHistory = 1; % hablitando a gravação dos ganhos de canal
 canal_ray4.StoreHistory = 1; % hablitando a gravação dos ganhos de canal
 canal_ray5.StoreHistory = 1; % hablitando a gravação dos ganhos de canal
 canal_ray6.StoreHistory = 1; % hablitando a gravação dos ganhos de canal
+
 sinal_rec_ray = filter(canal_ray, info_mod); %esta função representa  o ato de transmitir um sinal modulado por um canal sem fio
 sinal_rec_ray2 = filter(canal_ray2, info_mod); %esta função representa  o ato de transmitir um sinal modulado por um canal sem fio
 sinal_rec_ray3 = filter(canal_ray3, info_mod); %esta função representa  o ato de transmitir um sinal modulado por um canal sem fio
@@ -39,11 +40,13 @@ ganho_ray3 = canal_ray3.PathGains; % salvando os ganhos do canal
 ganho_ray4 = canal_ray4.PathGains; % salvando os ganhos do canal
 ganho_ray5 = canal_ray5.PathGains; % salvando os ganhos do canal
 ganho_ray6 = canal_ray6.PathGains; % salvando os ganhos do canal
+
 ganho_eq = max(ganho_ray,ganho_ray2);
 ganho_eq = max(ganho_ray3,ganho_eq);
 ganho_eq = max(ganho_ray4,ganho_eq);
 ganho_eq = max(ganho_ray5,ganho_eq);
 ganho_eq = max(ganho_ray6,ganho_eq);
+
 figure(1)
 plot(20*log10(abs(ganho_ray)))
 hold on
@@ -58,10 +61,25 @@ hold on
 plot(20*log10(abs(ganho_ray6)))
 hold on
 plot(20*log10(abs(ganho_eq)),'.')
+
 % sinal_rec_ray_awgn = awgn(sinal_rec_ray,SNR); % Modelando a inserção do ruido branco no sinal recebido
 % sinal_rec_ray_awgn2 = awgn(sinal_rec_ray2,SNR); % Modelando a inserção do ruido branco no sinal recebido
+% sinal_rec_ray_awgn3 = awgn(sinal_rec_ray3,SNR); % Modelando a inserção do ruido branco no sinal recebido
+% sinal_rec_ray_awgn4 = awgn(sinal_rec_ray4,SNR); % Modelando a inserção do ruido branco no sinal recebido
+% sinal_rec_ray_awgn5 = awgn(sinal_rec_ray5,SNR); % Modelando a inserção do ruido branco no sinal recebido
+% sinal_rec_ray_awgn6 = awgn(sinal_rec_ray6,SNR); % Modelando a inserção do ruido branco no sinal recebido
+% 
 % sinalEqRay = sinal_rec_ray_awgn./ganho_ray;
 % sinalEqRay2 = sinal_rec_ray_awgn2./ganho_ray2;
+% sinalEqRay3 = sinal_rec_ray_awgn3./ganho_ray3;
+% sinalEqRay4 = sinal_rec_ray_awgn4./ganho_ray4;
+% sinalEqRay5 = sinal_rec_ray_awgn5./ganho_ray5;
+% sinalEqRay6 = sinal_rec_ray_awgn6./ganho_ray6;
+% 
 % sinalDemRay = pskdemod(sinalEqRay,M);
 % sinalDemRay2 = pskdemod(sinalEqRay2,M);
-
+% sinalDemRay3 = pskdemod(sinalEqRay3,M);
+% sinalDemRay4 = pskdemod(sinalEqRay4,M);
+% sinalDemRay5 = pskdemod(sinalEqRay5,M);
+% sinalDemRay6 = pskdemod(sinalEqRay6,M);
+% 
